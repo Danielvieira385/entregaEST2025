@@ -1,5 +1,6 @@
 package com.example
 
+import com.example.entrega.Pessoa
 import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
@@ -21,9 +22,18 @@ fun Application.configureTemplating() {
         })
     }
     routing {
-        get("/html-thymeleaf") {
-            call.respond(ThymeleafContent("index", mapOf("user" to ThymeleafUser(1, "user1"))))
+//        get("/html-thymeleaf") {
+//            call.respond(ThymeleafContent("index", mapOf("user" to ThymeleafUser(1, "user1"))))
+//        }
+        get("/entrega.html") {
+            call.respond(ThymeleafContent("entrega", mapOf("entrega" to entregas[0])))
+        }
+        get("/entregas.html") {
+            call.respond(ThymeleafContent("entregas", mapOf("entregas" to entregas)))
+        }
+        get("/cadastrar-entrega.html") {
+            call.respond(ThymeleafContent("cadastrar-entrega", mapOf("pessoas" to Pessoa.todas())))
         }
     }
 }
-data class ThymeleafUser(val id: Int, val name: String)
+// data class ThymeleafUser(val id: Int, val name: String)

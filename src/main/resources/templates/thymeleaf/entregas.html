@@ -1,0 +1,29 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ENTREGA</title>
+</head>
+<body>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Remetente</th>
+                <th>Destinatário</th>
+                <th>Entregue</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="entrega : ${entregas}">
+                <td th:text="${entrega.remetente.nome}">Remetente</td>
+                <td th:text="${entrega.destinatario.nome}">Destinatário</td>
+                <td th:if="${entrega.entregue}">Entregue</td>
+                <td th:unless="${entrega.entregue}">Não Entregue</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+

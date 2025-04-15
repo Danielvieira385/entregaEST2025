@@ -26,7 +26,7 @@ fun main() {
     File("$CAMINHODATA/pessoas.json").writeText(jsonPessoas)
     println("JSON salvo:\n$jsonPessoas")
 
-    val jsonEntregas = Json.encodeToString(entregas.map { EntregaSerializada.de(it) } )
+    val jsonEntregas = Json.encodeToString(entregas.map { EntregaSerializada.construir(it) } )
     File("$CAMINHODATA/entregas.json").writeText(jsonEntregas)
     println("JSON salvo:\n$jsonEntregas")
 

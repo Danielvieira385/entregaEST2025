@@ -1,0 +1,29 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ENTREGA</title>
+</head>
+<body>
+<div>
+    <form action="cadastrarEntrega" method="post">
+        <div>
+            <label for="remetente">Remetente:</label>
+            <select id="remetente" name="remetente">
+                <option th:each="pessoa : ${pessoas}" th:value="${pessoa.id}"
+                        th:text="${pessoa.nome}">Nome</option>
+            </select>
+        </div>
+        <div>
+            <label for="destinatario">Destinatario:</label>
+            <select id="destinatario" name="destinatario">
+                <option th:each="pessoa : ${pessoas}" th:value="${pessoa.id}"
+                        th:text="${pessoa.nome}">Nome</option>
+            </select>
+        </div>
+        <input type="submit" value="Cadastrar">
+    </form>
+</div>
+</body>
+</html>
+

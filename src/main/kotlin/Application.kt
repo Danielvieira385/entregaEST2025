@@ -7,8 +7,11 @@ fun main(args: Array<String>) {
 }
 
 fun Application.module() {
-    configureTemplating()
+    startServer()
+
     configureHTTP()
     configureSerialization()
     configureRouting()
+    configureAPI()
+    configureTemplating()
 }

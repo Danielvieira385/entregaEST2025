@@ -29,7 +29,7 @@ data class EntregaSerializada(
     }
 
     companion object {
-        fun de(entrega: Entrega): EntregaSerializada =
+        fun construir(entrega: Entrega): EntregaSerializada =
             EntregaSerializada(
                 entrega.remetente.id,
                 entrega.destinatario.id,
